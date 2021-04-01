@@ -1,0 +1,17 @@
+{
+  "name": "kafka_2.13-2.6.0",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "yarn zk && yarn kafka",
+    "zk": "./bin/zookeeper-server-start.sh ./config/zookeeper.properties",
+    "kafka": "./bin/kafka-server-start.sh ./config/server.properties",
+    "topic:list": "./bin/kafka-topics.sh --list --bootstrap-server localhost:9092",
+    "topic:watch": "./bin/kafka-console-consumer.sh --topic cms-plus-page-update-event --bootstrap-server localhost:9092",
+    "producer": "./bin/kafka-console-producer.sh --broker-list localhost:9092 --topic cms-plus-page-update-event",
+	"consumer": "./bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic cms-plus-page-update-event"
+  },
+  "author": "Erchoc",
+  "license": "MIT"
+}
